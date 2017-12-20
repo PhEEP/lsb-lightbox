@@ -151,8 +151,17 @@
                 })
                 // Calculate image of the collection that should be displayed (the one user clicked).
                 if (elementHref === selectedImgHref) {
-                  curImgIndex = i
+                  curImgIndex = i;
                 }
+              }
+            } else {
+              collectedImages.push({
+                href: elementHref,
+                alt: alt
+              })
+              // Calculate image of the collection that should be displayed (the one user clicked).
+              if (elementHref === selectedImgHref) {
+                curImgIndex = i;
               }
             }
           })
@@ -214,15 +223,15 @@
         return this.images.length > 1
       },
       /**
-       * Returns an unique array of images.
+       * Returns whether image is unique to array.
        */
       isUnique: function (arr, href) {
         $.each(arr, function (key, value) {
           if (value.href) {
-            return false
+            return false;
           }
         })
-        return true
+        return true;
       }
     }
 
@@ -233,10 +242,10 @@
      */
     ;
     (function init() {
-      var waitingIconCircle = ''
+      var waitingIconCircle = '';
 
       for (var i = 0; i < 12; i++) {
-        waitingIconCircle += '<div class="waitingicon-circle"></div>'
+        waitingIconCircle += '<div class="waitingicon-circle"></div>';
       }
 
       $('body').append(

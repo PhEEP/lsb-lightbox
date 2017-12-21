@@ -106,6 +106,21 @@
     var lsbClosed = true
 
     /**
+     * Returns whether image is unique to array.
+     * Pass href with target array to determine whether object with href is already present
+     */
+    var isUniqueByHref = function (arr, href) {
+      var isUniqueHref = true;
+      $.each(arr, function (key, value) {
+        // check if href prop of value is equal to passed href to add
+        if (value['href'] === href) {
+          isUniqueHref = false;
+        }
+      })
+      return isUniqueHref;
+    }
+
+    /**
      * Collection of images to show in lightbox.
      */
     var imageCollection = {
@@ -144,7 +159,7 @@
               .find('img')
               .attr('alt')
             if (settings.uniqueImages) {
-              if (isUnique(collectedImages, elementHref)) {
+              if (isUniqueByHref(collectedImages, elementHref)) {
                 collectedImages.push({
                   href: elementHref,
                   alt: alt
@@ -221,17 +236,6 @@
        */
       canSwitch: function () {
         return this.images.length > 1
-      },
-      /**
-       * Returns whether image is unique to array.
-       */
-      isUnique: function (arr, href) {
-        $.each(arr, function (key, value) {
-          if (value.href) {
-            return false;
-          }
-        })
-        return true;
       }
     }
 

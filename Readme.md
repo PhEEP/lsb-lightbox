@@ -1,6 +1,6 @@
-#LightSpeedBox (lightbox jQuery plugin)
+# LightSpeedBox (lightbox jQuery plugin)
 
-##About
+## About
 
 LightSpeedBox is a jQuery plugin for a fancy image preview box (also called a lightbox).
 
@@ -8,7 +8,7 @@ LightSpeedBox is a jQuery plugin for a fancy image preview box (also called a li
 
 Please see [demo page here](http://alexemashev.github.io/lsb-lightbox/).
 
-##Features
+## Features
 
 - Click thumbnail to show the lightbox
 - Individual image preview as well as go through a gallery
@@ -18,13 +18,13 @@ Please see [demo page here](http://alexemashev.github.io/lsb-lightbox/).
 - Smooth transitions and animations using CSS
 - Localization
 
-##Dependencies
+## Dependencies
 
 - [jQuery](http://jquery.com/)
 
-##Installation
+## Installation
 
-###Manual Installation
+### Manual Installation
 
 For manual installation just include these two files into **&lt;head&gt;** of your page:
 [lsb.js](http://alexemashev.github.io/lightspeedbox/dist/lsb.js)
@@ -32,7 +32,7 @@ For manual installation just include these two files into **&lt;head&gt;** of yo
 
 You'll also need to add [jQuery](http://jquery.com/) library if it's not already.
 
-###Using Bower
+### Using Bower
 
 Use following command:
 `bower install lightspeedbox`
@@ -40,7 +40,7 @@ or
 `bower install lightspeedbox --save`
 to save to your project as dependency.
 
-##Usage
+## Usage
 
 To initialize the plugin put this script into your head tag.
 
@@ -82,6 +82,7 @@ The plugin accepts following parameters as a simple JavaScript object:
 |showDownloadButton|true|Show download full-size image button.|
 |showPlayButton|true|Slideshow button (doesn't show up when single image is displayed).|
 |slideShow   |false      |Slideshow enabled, when lightbox first time open.|
+|uniqueImages |true |Ensures only unique images get added to array for lightboxing
 |slideShowTiming   |3500      |Slideshow delay (msec).|
 |zIndex           |30      |z-index property of lightbox (bump it higher if it shows up beneath the other elements).|
 |locale           |see below     |Localization object for element titles.|

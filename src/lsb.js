@@ -364,31 +364,29 @@
        * Instead of click on image, detect mousedown and mouseup events. They work with touch either.
        * This allows to use this lightbox in different sliders.
        */
-      $('.lsb-preview').mousedown(function (event) {
-        mouseOffset.x = event.clientX
-        mouseOffset.y = event.clientY
-      })
+      $(document).on('mousedown', '.lsb-preview', function (event) {
+        mouseOffset.x = event.clientX;
+        mouseOffset.y = event.clientY;
+      });
 
-      $('.lsb-preview').mouseup(function (event) {
-        if (
-          Math.abs(mouseOffset.x - event.clientX) < clickThreshold &&
-          Math.abs(mouseOffset.y - event.clientY) < clickThreshold
-        ) {
+      $(document).on('mouseup', '.lsb-preview', function (event) {
+        if (Math.abs(mouseOffset.x - event.clientX) < clickThreshold &&
+           Math.abs(mouseOffset.y - event.clientY) < clickThreshold) {
           // Get all images in set
-          imageCollection.getImagesInSet($(this))
+          imageCollection.getImagesInSet($(this));
 
-          showLightbox()
-          switchImage(imageCollection.images[imageCollection.current])
+          showLightbox();
+          switchImage(imageCollection.images[imageCollection.current]);
 
           if (settings.slideshow) {
-            window.setTimeout(playbackGo, settings.playbackTiming)
+            window.setTimeout(playbackGo, settings.playbackTiming);
           }
         }
-      })
+      });
 
-      $('.lsb-preview').click(function (event) {
-        event.preventDefault()
-      })
+      $(document).on('click', '.lsb-preview', function (event) {
+        event.preventDefault();
+      });
 
       // Add swipe detection plugin.
       $lsb.swipeDetector().on('swipeLeft.lsb swipeRight.lsb', function (event) {
